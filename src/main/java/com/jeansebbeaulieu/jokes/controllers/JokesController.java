@@ -14,7 +14,6 @@ public class JokesController {
         return jokesService;
     }
 
-    @Autowired
     private final JokesService jokesService;
 
     public JokesController(JokesService jokesService) {
