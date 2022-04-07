@@ -14,18 +14,14 @@ public class JokesController {
         return jokesService;
     }
 
-    public void setJokesService(JokesService jokesService) {
-        this.jokesService = jokesService;
-    }
-
     @Autowired
-    private JokesService jokesService;
+    private final JokesService jokesService;
 
     public JokesController(JokesService jokesService) {
         this.jokesService = jokesService;
     }
 
-    @RequestMapping("/")
+    @RequestMapping({"/", "" })
     public String getJoke(Model model) {
         model.addAttribute("joke", jokesService.getRandomQuote());
         return "jokes/index";
